@@ -8,11 +8,6 @@ html
     .container
       #app
         h2(v-text="title")
-        .first
-          h3
-            span(v-text="first.name")
-            span(v-text="first.percent")
-          div.description(v-text="first.description")
         .bar
           svg(height="50" viewBox="0 0 300 50")
             rect(v-attr="width:firstWidth" height="50"
@@ -36,6 +31,11 @@ html
                 attributeName="x"
                 v-attr="from:barWidth, to:firstWidth, dur:animateDur, begin:animateBegin"
                 )
+        .first
+          h3
+            span(v-text="first.name")
+            span(v-text="first.percent")
+          div.description(v-text="first.description")
         .second
           h3
             span(v-text="second.name")
