@@ -28,11 +28,10 @@ new Vue({
   methods:{
     fetchData : function(){
       this.$data.companies = randomCompany()
-      this.$data.begin = "100000s"
-      var self = this
-      Vue.nextTick(function(){
-        console.log("NE")
-        self.$data.begin = "0s"
+      this.$data.begin = "0s"
+      var animates = document.querySelectorAll(".bar animate")
+      animates.forEach(function(){
+        this.forceRedraw()
       })
     },
     next : function(){
@@ -46,7 +45,7 @@ new Vue({
       return "1s"
     },
     animateBegin:function(){
-      this.$data.begin
+      return "activate" //this.$data.begin
     },
     barWidth : function(){
       return 300
