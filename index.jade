@@ -1,0 +1,46 @@
+html
+  head
+    meta(encode="utf-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no")
+    link(rel="stylesheet" href="main.css")
+  body
+    h1 Crazy
+    .container
+      #app
+        h2(v-text="title")
+        .first
+          h3
+            span(v-text="first.name")
+            span(v-text="first.percent")
+          div.description(v-text="first.description")
+        .bar
+          svg(height="50" viewBox="0 0 300 50")
+            rect(v-attr="width:firstWidth" height="50"
+              fill="red")
+              animate(
+                attributeType="XML"
+                attributeName="width"
+                from="0"
+                dur="1s"
+                v-attr="to:firstWidth, dur:animateDur, begin:animateBegin")
+            rect(v-attr="width:secondWidth, x:firstWidth"
+              height="50"
+              fill="blue")
+              animate(
+                attributeType="XML"
+                attributeName="width"
+                from="0"
+                v-attr="to:secndWidth, dur:animateDur, begin:animateBegin"
+                )
+              animate(
+                attributeType="XML"
+                attributeName="x"
+                v-attr="from:barWidth, to:firstWidth, dur:animateDur, begin:animateBegin"
+                )
+        .second
+          h3
+            span(v-text="second.name")
+            span(v-text="second.percent")
+          div.description(v-text="second.description")
+        button(v-on="click:next") 次の項目を見る
+    script(src="build.js")

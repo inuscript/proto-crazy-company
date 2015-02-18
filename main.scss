@@ -1,0 +1,15 @@
+.container{
+  background : #ccc;
+  padding : 1em;
+  border-radius : 5px;
+  .description{
+    word-break : break-all;
+  }
+  .bar{
+    max-width: 300px;
+    margin: 0 auto;
+    svg{
+      width :100%;
+    }
+  }
+}
